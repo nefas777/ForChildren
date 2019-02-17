@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script>
+        function reloadGraph() {
+   var now = new Date();
+
+   document.images['graph'].src = 'static/plot.jpg?' + now.getTime();
+
+   // Start new timer (1 min)
+   timeoutID = setTimeout('reloadGraph()', 5000);
+}
+    </script>
+</head>
+<body onload="reloadGraph()">
+    <img id="graph" src="/static/plot.jpg" width="50%" height="50%" alt="My updating graph" />
+</body>
+</html>
