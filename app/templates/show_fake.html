@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+
+<style>
+#graph {
+    height: 100vh;
+    }
+* {
+    margin: 0;
+    padding: 0;
+    }
+form, h1 {
+    text-align: center;
+    }
+</style>
+<body>
+<h1>
+    For Children
+</h1>
+<p align="middle">
+    <img id="graph" src="/static/plot.jpg" width="50%"  alt="My updating graph" align="middle"/>
+
+
+</p>
+<form method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit.png">
+</form>
+
+</body>
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+
+function randomInteger(min, max) {
+    var rand = min - 0.5 + Math.random() * (max - min + 1);
+    rand = Math.round(rand);
+    return rand;
+}
+
+var timeout = setTimeout(reloadGraph, 1000);
+
+function reloadGraph () {
+    $('#graph').attr('src', '/static/' + randomInteger(0, 3) + '.jpg');
+    timeout = setTimeout(reloadGraph, 1000);
+    console.log('Refresh to /static/' + randomInteger(0, 3) + '.jpg');
+}
+</script>
+
+</html>
